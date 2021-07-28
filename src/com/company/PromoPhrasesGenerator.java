@@ -72,6 +72,8 @@ public class PromoPhrasesGenerator {
 
         int placeIndex = random.nextInt(placePhrases.getLength());
         String place = placePhrases.getByIndex(placeIndex);
+
+        return String.format("%s %s %s %s %s", callToAction, item, brand, preposition, place);
     }
 
 }
