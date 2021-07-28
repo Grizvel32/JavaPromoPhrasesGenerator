@@ -60,4 +60,10 @@ public class PhraseList {
 
         phrases = tempPhrases;
     }
+
+    public void addRange(String[] phrases){
+        for (int i = 0; i < phrases.length; i++) {
+            addToEnd(phrases[i]);
+        }
+    }
 }
