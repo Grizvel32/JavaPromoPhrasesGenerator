@@ -2,34 +2,53 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
-        PromoPhrasesGenerator promoPhrasesGenerator = new PromoPhrasesGenerator();
-        int action = -1;
-        boolean isRun = true;
+    public static void main(String[] args) throws Exception {
+        PhraseList callToActionPhrases = new PhraseList();
+        PhraseList itemPhrases = new PhraseList();
+        PhraseList brandPhrases = new PhraseList();
+        PhraseList prepositionPhrases = new PhraseList();
+        PhraseList placePhrases = new PhraseList();
 
-        while (isRun) {
+        callToActionPhrases.addRange(new String[]{
+                "Купи",
+                "Выбери",
+                "Найди",
+                "Забери"
+        });
 
-            ConsoleHelper.PrintMessage("Меню:");
-            ConsoleHelper.PrintMessage("1. Вывести новую фразу");
-            ConsoleHelper.PrintMessage("0. Выход");
+        itemPhrases.addRange(new String[]{
+                "машину",
+                "квартиру",
+                "телефон",
+                "пылесос",
+                "стиральную машинку"
+        });
 
-            action = ConsoleHelper.InputInt("Введите номер пункта меню: ", 0, 1);
+        brandPhrases.addRange(new String[]{
+                "Apple",
+                "Samsung",
+                "Звезда",
+                "Philips",
+                "Дружба"
+        });
 
-            switch (action){
-                case 1:{
-                    try {
-                        String phrase = promoPhrasesGenerator.getRandomPhrase();
-                        ConsoleHelper.PrintMessage(phrase);
-                    } catch (Exception e) {
-                        ConsoleHelper.PrintMessage(e.getMessage());
-                    }
-                }
-                break;
-                case 0: {
-                    isRun = false;
-                }
-                break;
-            }
-        }
+        prepositionPhrases.addRange(new String[]{
+                "в",
+                "на"
+        });
+
+        placePhrases.addRange(new String[]{
+                "торговом центре",
+                "доме отдыха",
+                "чёрном рынке",
+                "магазине",
+                "базаре"
+        });
+
+
+        PromoPhrasesGenerator promoPhrasesGenerator = new PromoPhrasesGenerator(callToActionPhrases, itemPhrases, brandPhrases, prepositionPhrases, placePhrases);
+
+        MenuManager menuManager = new MenuManager(promoPhrasesGenerator);
+        menuManager.execute();
     }
 }

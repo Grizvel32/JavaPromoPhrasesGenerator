@@ -11,50 +11,14 @@ public class PromoPhrasesGenerator {
     private PhraseList prepositionPhrases = null;
     private PhraseList placePhrases = null;
 
-    public PromoPhrasesGenerator() {
+    public PromoPhrasesGenerator(PhraseList callToActionPhrases, PhraseList itemPhrases, PhraseList brandPhrases, PhraseList prepositionPhrases, PhraseList placePhrases) {
         random = new Random();
 
-        callToActionPhrases = new PhraseList();
-        callToActionPhrases.addRange(new String[]{
-                "Купи",
-                "Выбери",
-                "Найди",
-                "Забери"
-        });
-
-        itemPhrases = new PhraseList();
-        itemPhrases.addRange(new String[]{
-                "машину",
-                "квартиру",
-                "телефон",
-                "пылесос",
-                "стиральную машинку"
-        });
-
-        brandPhrases = new PhraseList();
-        brandPhrases.addRange(new String[]{
-                "Apple",
-                "Samsung",
-                "Звезда",
-                "Philips",
-                "Дружба"
-        });
-
-        prepositionPhrases = new PhraseList();
-        prepositionPhrases.addRange(new String[]{
-           "в",
-           "на"
-        });
-
-
-        placePhrases = new PhraseList();
-        placePhrases.addRange(new String[]{
-                "торговом центре",
-                "доме отдыха",
-                "чёрном рынке",
-                "магазине",
-                "базаре"
-        });
+        this.callToActionPhrases = callToActionPhrases;
+        this.itemPhrases = itemPhrases;
+        this.brandPhrases = brandPhrases;
+        this.prepositionPhrases = prepositionPhrases;
+        this.placePhrases = placePhrases;
     }
 
     public String getRandomPhrase() throws Exception{
@@ -76,4 +40,13 @@ public class PromoPhrasesGenerator {
         return String.format("%s %s %s %s %s", callToAction, item, brand, preposition, place);
     }
 
+    public PhraseList getCallToActionPhrases() {
+        return callToActionPhrases;
+    }
+
+    public PhraseList getItemPhrases() {
+        return itemPhrases;
+    }
+
+    //todo add other getters
 }

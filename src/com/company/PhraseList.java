@@ -7,12 +7,16 @@ public class PhraseList {
         phrases = new String[0];
     }
 
-    public void clear(){
+   /*public PhraseList(String fileName){
+        load(fileName);
+    }*/
+
+    public void clear() {
         phrases = new String[0];
     }
 
     public String getByIndex(int index) throws Exception {
-        if(index<0 || index>phrases.length-1){
+        if (index < 0 || index > phrases.length - 1) {
             throw new Exception("Выход за границы списка фраз");
         }
 
@@ -20,14 +24,14 @@ public class PhraseList {
     }
 
     public void setByIndex(int index, String value) throws Exception {
-        if(index<0 || index>phrases.length-1){
+        if (index < 0 || index > phrases.length - 1) {
             throw new Exception("Выход за границы списка фраз");
         }
 
         phrases[index] = value;
     }
 
-    public int getLength(){
+    public int getLength() {
         return phrases.length;
     }
 
@@ -42,7 +46,7 @@ public class PhraseList {
 
         phrases = tempPhrases;
     }
-    
+
     public void deleteByIndex(int index) throws Exception {
         if (index < 0 || index > phrases.length - 1) {
             throw new Exception("Выход за границы списка фраз");
@@ -61,7 +65,7 @@ public class PhraseList {
         phrases = tempPhrases;
     }
 
-    public void addRange(String[] phrases){
+    public void addRange(String[] phrases) {
         for (int i = 0; i < phrases.length; i++) {
             addToEnd(phrases[i]);
         }
