@@ -21,8 +21,10 @@ public class MenuManager {
             ConsoleHelper.PrintMessage("        Меню словаря:");
             ConsoleHelper.PrintMessage("        1. Добавить новое слово в конец словаря");
             ConsoleHelper.PrintMessage("        2. Удалить слово по индексу");
+            ConsoleHelper.PrintMessage("        3. Сохранить словарь");
+            ConsoleHelper.PrintMessage("        4. Перезагрузить словарь из файла");
             ConsoleHelper.PrintMessage("        0. Выход");
-            action = ConsoleHelper.InputInt("        Введите номер пункта меню: ", 0, 2);
+            action = ConsoleHelper.InputInt("        Введите номер пункта меню: ", 0, 4);
 
             switch (action) {
                 case 1: {
@@ -33,6 +35,14 @@ public class MenuManager {
                 case 2: {
                     int index = ConsoleHelper.InputInt("        Введите индекс для удаления: ", 0, phraseList.getLength() - 1);
                     phraseList.deleteByIndex(index);
+                }
+                break;
+                case 3: {
+                    phraseList.save();
+                }
+                break;
+                case 4: {
+                    phraseList.load();
                 }
                 break;
                 case 0: {
